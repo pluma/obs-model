@@ -2,6 +2,8 @@
 
 **obs-model** provides a minimal baseline for defining MVC or MVVM models with [observable attributes](https://github.com/pluma/obs.js).
 
+For an example of extending models with plugins, see [obs-model-validation](https://github.com/pluma/obs-model-validation).
+
 [![browser support](https://ci.testling.com/pluma/obs-model.png)](https://ci.testling.com/pluma/obs-model)
 
 [![Build Status](https://travis-ci.org/pluma/obs-model.png?branch=master)](https://travis-ci.org/pluma/obs-model)
@@ -88,11 +90,9 @@ The attribute will appear as an observable property on new model instances.
 
 ## Model.use(plugin:Function)
 
-Adds the given plugin to the model. The function will later be called by the model's constructor with `this` set to the new model instance.
+Adds the given plugin to the model. The function will later be called by the model's constructor with `this` set to the new model instance. If you add the same plugin multiple times, it will only be added once.
 
 This method is the backbone of model extensibility.
-
-If you add the same plugin multiple times, it will only be added once.
 
 ## Model#model
 
