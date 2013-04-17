@@ -31,7 +31,7 @@ function model(name, attrs) {
     };
 
     aug(Model, {
-        name: name,
+        modelName: name,
         attrs: attrs || {},
         plugins: [],
         attr: function(name, options) {

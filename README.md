@@ -25,7 +25,7 @@ bob.username('admin');
 
 Create a `Model` with the given name.
 
-## Model.name
+## Model.modelName
 
 The model's name as passed to `model()`.
 
