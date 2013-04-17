@@ -37,6 +37,11 @@ function model(name, attrs) {
             return this;
         },
         use: function(plugin) {
+            for (var i = 0; i < this.plugins.length; i++) {
+                if (this.plugins[i] === plugin) {
+                    return this;
+                }
+            }
             this.plugins.push(plugin);
             return this;
         }

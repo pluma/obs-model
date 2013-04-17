@@ -1,4 +1,4 @@
-LICENSE_COMMENT="/*! obs-model 0.1.0 Copyright (c) 2013 Alan Plum. MIT licensed. */"
+LICENSE_COMMENT="/*! obs-model 0.2.0 Copyright (c) 2013 Alan Plum. MIT licensed. */"
 
 test:
 	@./node_modules/.bin/mocha \

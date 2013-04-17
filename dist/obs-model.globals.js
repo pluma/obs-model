@@ -1,4 +1,4 @@
-/*! obs-model 0.1.0 Copyright (c) 2013 Alan Plum. MIT licensed. */
+/*! obs-model 0.2.0 Copyright (c) 2013 Alan Plum. MIT licensed. */
 (function(root){var require=function(key){return root[key];},exports=(root.obs-model={});
 var aug = require('aug'),
     obs = require('obs');
@@ -39,6 +39,11 @@ function model(name, attrs) {
             return this;
         },
         use: function(plugin) {
+            for (var i = 0; i < this.plugins.length; i++) {
+                if (this.plugins[i] === plugin) {
+                    return this;
+                }
+            }
             this.plugins.push(plugin);
             return this;
         }
