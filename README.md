@@ -2,7 +2,7 @@
 
 **obs-model** provides a minimal yet very extensible baseline for defining MVC or MVVM models with [observable attributes](https://github.com/pluma/obs.js).
 
-For an example of extending models with plugins, see [obs-model-validation](https://github.com/pluma/obs-model-validation).
+For an example of extending models with plugins, see [the validation plugin](https://github.com/pluma/obs-model-validation).
 
 [![browser support](https://ci.testling.com/pluma/obs-model.png)](https://ci.testling.com/pluma/obs-model)
 
