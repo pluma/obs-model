@@ -1,6 +1,5 @@
 /*global describe, it, beforeEach */
 var expect = require('expect.js'),
-    aug = require('aug'),
     obs_model = require('../');
 
 describe('model', function() {
@@ -95,7 +94,7 @@ describe('new Model()', function() {
         });
         it('initializes it with `undefined` if no value was passed', function() {
             expect(m.two()).to.be(undefined);
-        }); 
+        });
     });
 });
 describe('Model#model', function() {
