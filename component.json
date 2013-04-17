@@ -1,7 +1,7 @@
 {
   "name": "obs-model",
   "version": "0.2.0",
-  "description": "Observable models.",
+  "description": "Extensible observable models.",
   "keywords": [
     "observable",
     "model",
