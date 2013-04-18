@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>obs-model by pluma</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>obs-model</h1>
+        <p>Extensible observable models.</p>
+        <p class="view"><a href="https://github.com/pluma/obs-model">View the Project on GitHub <small>pluma/obs-model</small></a></p>
+        <ul>
+          <li><a href="https://github.com/pluma/obs-model/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/pluma/obs-model/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/pluma/obs-model">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Synopsis</h1>
+
+<p><strong>obs-model</strong> provides a minimal yet very extensible baseline for defining MVC or MVVM models with <a href="https://github.com/pluma/obs.js">observable attributes</a>.</p>
+
+<p>For an example of extending models with plugins, see <a href="https://github.com/pluma/obs-model-validation">the validation plugin</a>.</p>
+
+<p><a href="https://ci.testling.com/pluma/obs-model"><img src="https://ci.testling.com/pluma/obs-model.png" alt="browser support"></a></p>
+
+<p><a href="https://travis-ci.org/pluma/obs-model"><img src="https://travis-ci.org/pluma/obs-model.png?branch=master" alt="Build Status"></a></p>
+
+<h1>Install</h1>
+
+<h2>Node.js</h2>
+
+<h3>With NPM</h3>
+
+<div class="highlight"><pre>npm install obs
+</pre></div>
+
+<h3>From source</h3>
+
+<div class="highlight"><pre>git clone https://github.com/pluma/obs-model.git
+<span class="nb">cd </span>obs-model
+npm install
+make <span class="o">&amp;&amp;</span> make dist
+</pre></div>
+
+<h2>Browser</h2>
+
+<h3>With component</h3>
+
+<div class="highlight"><pre>component install pluma/obs-model
+</pre></div>
+
+<p><a href="https://github.com/component/component">Learn more about component</a>.</p>
+
+<h3>With a CommonJS module loader</h3>
+
+<p>Download the <a href="https://raw.github.com/pluma/obs-model/master/dist/obs-model.min.js">latest minified CommonJS release</a> and add it to your project.</p>
+
+<p>Make sure you also have a compatible copy of <a href="https://github.com/jgallen23/aug">aug</a> and <a href="https://github.com/pluma/obs.js">obs</a>.</p>
+
+<p><a href="http://wiki.commonjs.org/wiki/Modules/1.1">Learn more about CommonJS modules</a>.</p>
+
+<h3>With an AMD module loader</h3>
+
+<p>Download the <a href="https://raw.github.com/pluma/obs-model/master/dist/obs-model.amd.min.js">latest minified AMD release</a> and add it to your project.</p>
+
+<p>Make sure you also have a compatible copy of <a href="https://github.com/jgallen23/aug">aug</a> and <a href="https://github.com/pluma/obs.js">obs</a>.</p>
+
+<p><a href="http://requirejs.org/docs/whyamd.html">Learn more about AMD modules</a>.</p>
+
+<h1>Basic usage example</h1>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">'User'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'username'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">bob</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">username</span><span class="o">:</span> <span class="s1">'bob'</span><span class="p">});</span>
+
+<span class="nx">bob</span><span class="p">.</span><span class="nx">username</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Bob's username is now: "</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">bob</span><span class="p">.</span><span class="nx">username</span><span class="p">(</span><span class="s1">'admin'</span><span class="p">);</span>
+<span class="c1">// -&gt; "Bob's username is now: admin"</span>
+</pre></div>
+
+<h1>API</h1>
+
+<h2>model(name)</h2>
+
+<p>Create a <code>Model</code> with the given name.</p>
+
+<h2>Model.modelName</h2>
+
+<p>The model's name as passed to <code>model()</code>.</p>
+
+<h2>Model.attr(name, [options])</h2>
+
+<p>Defines a new attribute with the given name. The <code>options</code> can be an object containing configuration data for model plugins.</p>
+
+<p>The attribute will appear as an observable property on new model instances.</p>
+
+<h2>Model.use(plugin:Function)</h2>
+
+<p>Adds the given plugin to the model. The function will later be called by the model's constructor with <code>this</code> set to the new model instance. If you add the same plugin multiple times, it will only be added once.</p>
+
+<p>This method is the backbone of model extensibility.</p>
+
+<h2>new Model([values])</h2>
+
+<p>Creates a new model instance. <code>values</code> is optionally an object mapping attribute names to their initial values.</p>
+
+<h2>Model#model</h2>
+
+<p>The <code>Model</code> this model is an instance of.</p>
+
+<h2>Model#[attrName]</h2>
+
+<p>An observable property representing each attribute.</p>
+
+<h2>Model#dismiss()</h2>
+
+<p>Runs the model's destructors. Plugins can use these to free event listeners, subscriptions and such.</p>
+
+<h1>License</h1>
+
+<p>The MIT/Expat license.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/pluma">pluma</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
