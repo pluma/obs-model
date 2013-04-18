@@ -8,8 +8,6 @@ For an example of extending models with plugins, see [the validation plugin](htt
 
 [![Build Status](https://travis-ci.org/pluma/obs-model.png?branch=master)](https://travis-ci.org/pluma/obs-model)
 
-
-
 # Install
 
 ## Node.js
@@ -94,9 +92,17 @@ Adds the given plugin to the model. The function will later be called by the mod
 
 This method is the backbone of model extensibility.
 
+## new Model([values])
+
+Creates a new model instance. `values` is optionally an object mapping attribute names to their initial values.
+
 ## Model#model
 
 The `Model` this model is an instance of.
+
+## Model#[attrName]
+
+An observable property representing each attribute.
 
 ## Model#dismiss()
 
