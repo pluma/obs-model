@@ -12,11 +12,7 @@
     "jgallen23/aug": "~0.0.5",
     "pluma/obs": "~0.5.2"
   },
-  "devDependencies": {
-    "mocha": "1.7.x",
-    "expect": "0.2.x",
-    "uglify-js": "1.3.x"
-  },
+  "devDependencies": {},
   "repo": "pluma/obs-models",
   "scripts": ["dist/obs-model.js"],
   "main": "./dist/obs-model.js",
