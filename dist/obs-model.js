@@ -8,6 +8,7 @@ function model(name, attrs) {
 
         this._destructors = [];
 
+        var computedAttrs = {};
         var watch = {};
         var key, opts, i;
 
@@ -17,9 +18,12 @@ function model(name, attrs) {
                 this[key] = obs.computed({
                     lazy: opts.lazy,
                     write: opts.write,
-                    read: opts.read,
+                    read: opts.read ? function() {} : opts.read,
                     context: this
                 });
+                if (opts.read) {
+                    computedAttrs[key] = opts.read;
+                }
                 if (opts.watch) {
                     watch[key] = [].concat(opts.watch);
                 }
@@ -28,6 +32,10 @@ function model(name, attrs) {
             } else {
                 this[key] = obs.prop();
             }
+        }
+
+        for (key in computedAttrs) {
+            this[key].read = computedAttrs[key];
         }
 
         for (key in watch) {
