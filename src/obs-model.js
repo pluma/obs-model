@@ -5,25 +5,54 @@ function model(name, attrs) {
     function Model(values) {
         values = values || {};
 
-        for (var key in this.model.attrs) {
-            if (values.hasOwnProperty(key)) {
+        this._destructors = [];
+
+        var watch = {};
+        var key, opts, i;
+
+        for (key in this.model.attrs) {
+            opts = this.model.attrs[key] || {};
+            if (opts.write || opts.read) {
+                this[key] = obs.computed({
+                    lazy: opts.lazy,
+                    write: opts.write,
+                    read: opts.read,
+                    context: this
+                });
+                if (opts.watch) {
+                    watch[key] = [].concat(opts.watch);
+                }
+            } else if (values.hasOwnProperty(key)) {
                 this[key] = obs.prop(values[key]);
             } else {
                 this[key] = obs.prop();
             }
         }
 
-        for (var i = 0; i < this.model.plugins.length; i++) {
-            this.model.plugins[i].call(this);
+        for (key in watch) {
+            for (i = 0; i < watch[key].length; i++) {
+                this[key].watch(this[watch[key][i]]);
+            }
+        }
+
+        this._destructors.push(function() {
+            for (var key in watch) {
+                for (var i = 0; i < watch[key].length; i++) {
+                    this[key].unwatch(this[watch[key][i]]);
+                }
+            }
+        });
+
+        for (i = 0; i < this.model.plugins.length; i++) {
+            this.model.plugins[i](this);
         }
     }
 
     Model.prototype = {
         model: Model,
-        _destructors: [],
         dismiss: function() {
             for (var i = 0; i < this._destructors.length; i++) {
-                this._destructors[i]();
+                this._destructors[i].call(this);
             }
         }
     };
@@ -41,6 +70,9 @@ function model(name, attrs) {
                 if (this.plugins[i] === plugin) {
                     return this;
                 }
+            }
+            if (typeof plugin.contributeToModel === 'function') {
+                plugin.contributeToModel(this);
             }
             this.plugins.push(plugin);
             return this;

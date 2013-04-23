@@ -1,6 +1,6 @@
 {
   "name": "obs-model",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Extensible observable models.",
   "keywords": [
     "observable",
@@ -10,7 +10,7 @@
   ],
   "dependencies": {
     "aug": "~0.0.5",
-    "obs": "~0.5.2"
+    "obs": "~0.6.1"
   },
   "devDependencies": {
     "mocha": "1.7.x",

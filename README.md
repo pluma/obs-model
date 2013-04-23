@@ -82,15 +82,33 @@ The model's name as passed to `model()`.
 
 ## Model.attr(name, [options])
 
-Defines a new attribute with the given name. The `options` can be an object containing configuration data for model plugins.
+Defines a new attribute with the given name. The `options` can be an object containing configuration data for the attribute.
 
 The attribute will appear as an observable property on new model instances.
+
+### options.read and options.write
+
+If either of these options is given, a computed observable with its context bound to the model will be created instead of a regular observable property.
+
+### options.watch
+
+If `options.read` is given, `options.watch` may optionally be an array of attribute names the computed observable will monitor for changes.
+
+### options.lazy
+
+If `options.read` is given, `options.lazy` may optionally be a boolean determining whether the computed observable will use lazy evaluation.
 
 ## Model.use(plugin:Function)
 
 Adds the given plugin to the model. The function will later be called by the model's constructor with `this` set to the new model instance. If you add the same plugin multiple times, it will only be added once.
 
 This method is the backbone of model extensibility.
+
+### plugin.contributeToModel(Model)
+
+If this function exists, it will be applied to the `Model` definition when the plugin is added.
+
+This function can provide additional properties or behaviour to the `Model` type itself.
 
 ## new Model([values])
 

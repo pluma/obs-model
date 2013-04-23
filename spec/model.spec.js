@@ -52,23 +52,34 @@ describe('Model.use()', function() {
         MyModel.use(plugin1);
         expect(MyModel.plugins).to.eql([plugin1, plugin2]);
     });
+    it('calls plugin.contributeToModel if it exists', function() {
+        var plugin = function() {};
+        plugin.contributeToModel = function(Model) {
+            plugin.timesCalled += 1;
+            plugin.Model = Model;
+        };
+        plugin.timesCalled = 0;
+        MyModel.use(plugin);
+        expect(plugin.timesCalled).to.be(1);
+        expect(plugin.Model).to.be(MyModel);
+    });
 });
 describe('new Model()', function() {
     var MyModel;
     beforeEach(function() {
         MyModel = obs_model.model('MyModel');
     });
-    it('calls plugins with the new instance as context', function() {
-        var plugin = function() {
+    it('calls plugins with the new instance', function() {
+        var plugin = function(model) {
             plugin.timesCalled += 1;
-            plugin.context = this;
+            plugin.model = model;
         };
         plugin.timesCalled = 0;
         MyModel.use(plugin);
         expect(plugin.timesCalled).to.be(0);
-        var m = new MyModel();
+        var model = new MyModel();
         expect(plugin.timesCalled).to.be(1);
-        expect(plugin.context).to.be(m);
+        expect(plugin.model).to.be(model);
     });
     describe('for each attribute', function() {
         var value = 'the loneliest number';
@@ -115,9 +126,9 @@ describe('Model#dismiss()', function() {
     it('calls every destructor', function() {
         var fn1 = function() {fn1.timesCalled += 1;};
         var fn2 = function() {fn2.timesCalled += 1;};
-        var plugin = function() {
-            this._destructors.push(fn1);
-            this._destructors.push(fn2);
+        var plugin = function(model) {
+            model._destructors.push(fn1);
+            model._destructors.push(fn2);
         };
         fn1.timesCalled = 0;
         fn2.timesCalled = 0;
