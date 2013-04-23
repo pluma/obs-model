@@ -1,6 +1,6 @@
 {
   "name": "obs-model",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Extensible observable models.",
   "keywords": [
     "observable",
@@ -9,8 +9,8 @@
     "mvvm"
   ],
   "dependencies": {
-    "aug": "~0.0.5",
-    "obs": "~0.6.1"
+    "assimilate": "~0.1.0",
+    "obs": "~0.7.0"
   },
   "devDependencies": {
     "mocha": "1.7.x",

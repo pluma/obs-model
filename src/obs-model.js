@@ -1,5 +1,6 @@
-var aug = require('aug'),
-    obs = require('obs');
+var assimilate = require('assimilate'),
+    obs = require('obs'),
+    noop = function() {};
 
 function model(name, attrs) {
     function Model(values) {
@@ -17,7 +18,7 @@ function model(name, attrs) {
                 this[key] = obs.computed({
                     lazy: opts.lazy,
                     write: opts.write,
-                    read: opts.read ? function() {} : opts.read,
+                    read: opts.read ? noop : opts.read,
                     context: this
                 });
                 if (opts.read) {
@@ -65,7 +66,7 @@ function model(name, attrs) {
         }
     };
 
-    aug(Model, {
+    assimilate(Model, {
         modelName: name,
         attrs: attrs || {},
         plugins: [],

@@ -1,6 +1,6 @@
 # Synopsis
 
-**obs-model** provides a minimal yet very extensible baseline for defining MVC or MVVM models with [observable attributes](https://github.com/pluma/obs.js).
+**obs-model** provides a minimal yet very extensible baseline for defining MVC or MVVM models with [observable attributes](https://github.com/pluma/obs).
 
 For an example of extending models with plugins, see [the validation plugin](https://github.com/pluma/obs-model-validation).
 
@@ -41,7 +41,7 @@ component install pluma/obs-model
 
 Download the [latest minified CommonJS release](https://raw.github.com/pluma/obs-model/master/dist/obs-model.min.js) and add it to your project.
 
-Make sure you also have a compatible copy of [aug](https://github.com/jgallen23/aug) and [obs](https://github.com/pluma/obs.js).
+Make sure you also have a compatible copy of [assimilate](https://github.com/pluma/assimilate) and [obs](https://github.com/pluma/obs).
 
 [Learn more about CommonJS modules](http://wiki.commonjs.org/wiki/Modules/1.1).
 
@@ -49,7 +49,7 @@ Make sure you also have a compatible copy of [aug](https://github.com/jgallen23/
 
 Download the [latest minified AMD release](https://raw.github.com/pluma/obs-model/master/dist/obs-model.amd.min.js) and add it to your project.
 
-Make sure you also have a compatible copy of [aug](https://github.com/jgallen23/aug) and [obs](https://github.com/pluma/obs.js).
+Make sure you also have a compatible copy of [assimilate](https://github.com/pluma/assimilate) and [obs](https://github.com/pluma/obs).
 
 [Learn more about AMD modules](http://requirejs.org/docs/whyamd.html).
 

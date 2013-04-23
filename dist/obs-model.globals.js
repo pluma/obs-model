@@ -1,7 +1,8 @@
-/*! obs-model 0.3.0 Copyright (c) 2013 Alan Plum. MIT licensed. */
+/*! obs-model 0.4.0 Copyright (c) 2013 Alan Plum. MIT licensed. */
 (function(root){var require=function(key){return root[key];},exports=(root.obs-model={});
-var aug = require('aug'),
-    obs = require('obs');
+var assimilate = require('assimilate'),
+    obs = require('obs'),
+    noop = function() {};
 
 function model(name, attrs) {
     function Model(values) {
@@ -19,7 +20,7 @@ function model(name, attrs) {
                 this[key] = obs.computed({
                     lazy: opts.lazy,
                     write: opts.write,
-                    read: opts.read ? function() {} : opts.read,
+                    read: opts.read ? noop : opts.read,
                     context: this
                 });
                 if (opts.read) {
@@ -67,7 +68,7 @@ function model(name, attrs) {
         }
     };
 
-    aug(Model, {
+    assimilate(Model, {
         modelName: name,
         attrs: attrs || {},
         plugins: [],
