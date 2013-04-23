@@ -29,7 +29,7 @@
       <section>
         <h1>Synopsis</h1>
 
-<p><strong>obs-model</strong> provides a minimal yet very extensible baseline for defining MVC or MVVM models with <a href="https://github.com/pluma/obs.js">observable attributes</a>.</p>
+<p><strong>obs-model</strong> provides a minimal yet very extensible baseline for defining MVC or MVVM models with <a href="https://github.com/pluma/obs">observable attributes</a>.</p>
 
 <p>For an example of extending models with plugins, see <a href="https://github.com/pluma/obs-model-validation">the validation plugin</a>.</p>
 
@@ -67,7 +67,7 @@ make <span class="o">&amp;&amp;</span> make dist
 
 <p>Download the <a href="https://raw.github.com/pluma/obs-model/master/dist/obs-model.min.js">latest minified CommonJS release</a> and add it to your project.</p>
 
-<p>Make sure you also have a compatible copy of <a href="https://github.com/jgallen23/aug">aug</a> and <a href="https://github.com/pluma/obs.js">obs</a>.</p>
+<p>Make sure you also have a compatible copy of <a href="https://github.com/pluma/assimilate">assimilate</a> and <a href="https://github.com/pluma/obs">obs</a>.</p>
 
 <p><a href="http://wiki.commonjs.org/wiki/Modules/1.1">Learn more about CommonJS modules</a>.</p>
 
@@ -75,7 +75,7 @@ make <span class="o">&amp;&amp;</span> make dist
 
 <p>Download the <a href="https://raw.github.com/pluma/obs-model/master/dist/obs-model.amd.min.js">latest minified AMD release</a> and add it to your project.</p>
 
-<p>Make sure you also have a compatible copy of <a href="https://github.com/jgallen23/aug">aug</a> and <a href="https://github.com/pluma/obs.js">obs</a>.</p>
+<p>Make sure you also have a compatible copy of <a href="https://github.com/pluma/assimilate">assimilate</a> and <a href="https://github.com/pluma/obs">obs</a>.</p>
 
 <p><a href="http://requirejs.org/docs/whyamd.html">Learn more about AMD modules</a>.</p>
 
@@ -107,15 +107,33 @@ make <span class="o">&amp;&amp;</span> make dist
 
 <h2>Model.attr(name, [options])</h2>
 
-<p>Defines a new attribute with the given name. The <code>options</code> can be an object containing configuration data for model plugins.</p>
+<p>Defines a new attribute with the given name. The <code>options</code> can be an object containing configuration data for the attribute.</p>
 
 <p>The attribute will appear as an observable property on new model instances.</p>
+
+<h3>options.read and options.write</h3>
+
+<p>If either of these options is given, a computed observable with its context bound to the model will be created instead of a regular observable property.</p>
+
+<h3>options.watch</h3>
+
+<p>If <code>options.read</code> is given, <code>options.watch</code> may optionally be an array of attribute names the computed observable will monitor for changes.</p>
+
+<h3>options.lazy</h3>
+
+<p>If <code>options.read</code> is given, <code>options.lazy</code> may optionally be a boolean determining whether the computed observable will use lazy evaluation.</p>
 
 <h2>Model.use(plugin:Function)</h2>
 
 <p>Adds the given plugin to the model. The function will later be called by the model's constructor with <code>this</code> set to the new model instance. If you add the same plugin multiple times, it will only be added once.</p>
 
 <p>This method is the backbone of model extensibility.</p>
+
+<h3>plugin.contributeToModel(Model)</h3>
+
+<p>If this function exists, it will be applied to the <code>Model</code> definition when the plugin is added.</p>
+
+<p>This function can provide additional properties or behaviour to the <code>Model</code> type itself.</p>
 
 <h2>new Model([values])</h2>
 
