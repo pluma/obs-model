@@ -58,16 +58,27 @@ Make sure you also have a compatible copy of [assimilate](https://github.com/plu
 ```javascript
 var User = model('User')
     .attr('id')
-    .attr('username');
+    .attr('username')
+    .attr('firstname')
+    .attr('lastname')
+    .attr('fullname', {
+        read: function() {
+            return this.firstname() + ' ' + this.lastname();
+        },
+        watch: ['firstname', 'lastname']
+    });
 
-var bob = new User({id: 1, username: 'bob'});
+var john = new User({id: 1, username: 'jdoe', firstname: 'John', lastname: 'Doe'});
 
-bob.username.subscribe(function(value) {
-    console.log("Bob's username is now: " + value);
+console.log(john.fullname()); // "John Doe"
+john.lastname('Smith');
+console.log(john.fullname()); // "John Smith"
+
+john.username.subscribe(function(value) {
+    console.log("john's username is now: " + value);
 });
-
-bob.username('admin');
-// -> "Bob's username is now: admin"
+john.username('admin');
+// -> "john's username is now: admin"
 ```
 
 # API
