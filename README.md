@@ -56,6 +56,7 @@ Make sure you also have a compatible copy of [assimilate](https://github.com/plu
 # Basic usage example
 
 ```javascript
+var model = require('obs-model').model;
 var User = model('User')
     .attr('id')
     .attr('username')
@@ -65,6 +66,11 @@ var User = model('User')
         read: function() {
             return this.firstname() + ' ' + this.lastname();
         },
+        write: function(value) {
+            var tokens = value.split(' ');
+            this.firstname(tokens.shift());
+            this.lastname(tokens.join(' '));
+        },
         watch: ['firstname', 'lastname']
     });
 
@@ -73,6 +79,8 @@ var john = new User({id: 1, username: 'jdoe', firstname: 'John', lastname: 'Doe'
 console.log(john.fullname()); // "John Doe"
 john.lastname('Smith');
 console.log(john.fullname()); // "John Smith"
+john.fullname('John von Johnson');
+console.log(john.lastname()); // "von Johnson"
 
 john.username.subscribe(function(value) {
     console.log("john's username is now: " + value);
