@@ -83,16 +83,27 @@ make <span class="o">&amp;&amp;</span> make dist
 
 <div class="highlight"><pre><span class="kd">var</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">'User'</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'username'</span><span class="p">);</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'username'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'firstname'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'lastname'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'fullname'</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">read</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstname</span><span class="p">()</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastname</span><span class="p">();</span>
+        <span class="p">},</span>
+        <span class="nx">watch</span><span class="o">:</span> <span class="p">[</span><span class="s1">'firstname'</span><span class="p">,</span> <span class="s1">'lastname'</span><span class="p">]</span>
+    <span class="p">});</span>
 
-<span class="kd">var</span> <span class="nx">bob</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">username</span><span class="o">:</span> <span class="s1">'bob'</span><span class="p">});</span>
+<span class="kd">var</span> <span class="nx">john</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">username</span><span class="o">:</span> <span class="s1">'jdoe'</span><span class="p">,</span> <span class="nx">firstname</span><span class="o">:</span> <span class="s1">'John'</span><span class="p">,</span> <span class="nx">lastname</span><span class="o">:</span> <span class="s1">'Doe'</span><span class="p">});</span>
 
-<span class="nx">bob</span><span class="p">.</span><span class="nx">username</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Bob's username is now: "</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">john</span><span class="p">.</span><span class="nx">fullname</span><span class="p">());</span> <span class="c1">// "John Doe"</span>
+<span class="nx">john</span><span class="p">.</span><span class="nx">lastname</span><span class="p">(</span><span class="s1">'Smith'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">john</span><span class="p">.</span><span class="nx">fullname</span><span class="p">());</span> <span class="c1">// "John Smith"</span>
+
+<span class="nx">john</span><span class="p">.</span><span class="nx">username</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"john's username is now: "</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
 <span class="p">});</span>
-
-<span class="nx">bob</span><span class="p">.</span><span class="nx">username</span><span class="p">(</span><span class="s1">'admin'</span><span class="p">);</span>
-<span class="c1">// -&gt; "Bob's username is now: admin"</span>
+<span class="nx">john</span><span class="p">.</span><span class="nx">username</span><span class="p">(</span><span class="s1">'admin'</span><span class="p">);</span>
+<span class="c1">// -&gt; "john's username is now: admin"</span>
 </pre></div>
 
 <h1>API</h1>
