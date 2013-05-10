@@ -6,7 +6,7 @@ For an example of extending models with plugins, see [the validation plugin](htt
 
 [![browser support](https://ci.testling.com/pluma/obs-model.png)](https://ci.testling.com/pluma/obs-model)
 
-[![Build Status](https://travis-ci.org/pluma/obs-model.png?branch=master)](https://travis-ci.org/pluma/obs-model)
+[![Build Status](https://travis-ci.org/pluma/obs-model.png?branch=master)](https://travis-ci.org/pluma/obs-model) [![NPM version](https://badge.fury.io/js/obs-model.png)](http://badge.fury.io/js/obs-model) [![Dependencies](https://david-dm.org/pluma/obs-model.png)](https://david-dm.org/pluma/obs-model)
 
 # Install
 
