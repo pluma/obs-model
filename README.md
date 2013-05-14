@@ -56,7 +56,7 @@ Make sure you also have a compatible copy of [assimilate](https://github.com/plu
 # Basic usage example
 
 ```javascript
-var model = require('obs-model').model;
+var model = require('obs-model');
 var User = model('User')
     .attr('id')
     .attr('username')
