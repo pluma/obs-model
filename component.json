@@ -9,7 +9,7 @@
     "mvvm"
   ],
   "dependencies": {
-    "pluma/aug": "0.1.0",
+    "jgallen23/aug": "0.1.0",
     "pluma/obs": "0.9.1"
   },
   "devDependencies": {},
