@@ -1,5 +1,5 @@
 /*! obs-model 0.5.0 Copyright (c) 2013 Alan Plum. MIT licensed. @preserve */
-(function(root){var require=function(key){return root[key];},exports=(root.obs-model={});
+(function(root){var require=function(key){return root[key];},module={};
 var aug = require('aug'),
     obs = require('obs'),
     noop = function() {};
@@ -93,4 +93,4 @@ function model(name, attrs) {
     return Model;
 }
 
-module.exports = model;}(this));
+module.exports = model;root.obsModel = module.exports;}(this));

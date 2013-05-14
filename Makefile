@@ -20,15 +20,16 @@ dist/obs-model.globals.js: dist/vendor
 	@echo $(LICENSE_COMMENT) > dist/obs-model.globals.js
 	@echo "(function(root){\
 	var require=function(key){return root[key];},\
-	exports=(root.obs-model={});" >> dist/obs-model.globals.js
+	module={};" >> dist/obs-model.globals.js
 	@cat src/obs-model.js >> dist/obs-model.globals.js
-	@echo "}(this));" >> dist/obs-model.globals.js
+	@echo "root.obsModel = module.exports;\
+	}(this));" >> dist/obs-model.globals.js
 
 dist/obs-model.amd.js: dist/vendor
 	@echo $(LICENSE_COMMENT) > dist/obs-model.amd.js
-	@echo "define(function(require, exports) {" >> dist/obs-model.amd.js
+	@echo "define(function(require, exports, module) {" >> dist/obs-model.amd.js
 	@cat src/obs-model.js >> dist/obs-model.amd.js
-	@echo "return exports;});" >> dist/obs-model.amd.js
+	@echo "return module.exports;});" >> dist/obs-model.amd.js
 
 dist/obs-model.min.js: dist/obs-model.js
 	@./node_modules/.bin/uglifyjs dist/obs-model.js --comments -m > dist/obs-model.min.js
