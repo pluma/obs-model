@@ -1,5 +1,5 @@
-/*! obs-model 0.4.0 Copyright (c) 2013 Alan Plum. MIT licensed. */
-var assimilate = require('assimilate'),
+/*! obs-model 0.5.0 Copyright (c) 2013 Alan Plum. MIT licensed. @preserve */
+var aug = require('aug'),
     obs = require('obs'),
     noop = function() {};
 
@@ -67,7 +67,7 @@ function model(name, attrs) {
         }
     };
 
-    assimilate(Model, {
+    aug(Model, {
         modelName: name,
         attrs: attrs || {},
         plugins: [],
@@ -91,4 +91,5 @@ function model(name, attrs) {
 
     return Model;
 }
-exports.model = model;
+
+module.exports = model;

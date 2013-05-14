@@ -1,18 +1,18 @@
 /*global describe, it, beforeEach */
 var expect = require('expect.js'),
-    obs_model = require('../');
+    model = require('../');
 
 describe('model', function() {
     it('creates a model with a modelName', function() {
         var name = 'MyModel';
-        var MyModel = obs_model.model(name);
+        var MyModel = model(name);
         expect(MyModel.modelName).to.equal(name);
     });
 });
 describe('Model.attr()', function() {
     var MyModel;
     beforeEach(function() {
-        MyModel = obs_model.model('MyModel');
+        MyModel = model('MyModel');
     });
     it('adds a named attribute to the model', function() {
         var name = 'someAttrName';
@@ -35,7 +35,7 @@ describe('Model.attr()', function() {
 describe('Model.use()', function() {
     var MyModel;
     beforeEach(function() {
-        MyModel = obs_model.model('MyModel');
+        MyModel = model('MyModel');
     });
     it('adds a plugin to the model', function() {
         var plugin = function() {};
@@ -67,25 +67,25 @@ describe('Model.use()', function() {
 describe('new Model()', function() {
     var MyModel;
     beforeEach(function() {
-        MyModel = obs_model.model('MyModel');
+        MyModel = model('MyModel');
     });
     it('calls plugins with the new instance', function() {
-        var plugin = function(model) {
+        var plugin = function(m) {
             plugin.timesCalled += 1;
-            plugin.model = model;
+            plugin.model = m;
         };
         plugin.timesCalled = 0;
         MyModel.use(plugin);
         expect(plugin.timesCalled).to.be(0);
-        var model = new MyModel();
+        var m = new MyModel();
         expect(plugin.timesCalled).to.be(1);
-        expect(plugin.model).to.be(model);
+        expect(plugin.model).to.be(m);
     });
     describe('for each attribute', function() {
         var value = 'the loneliest number';
         var m;
         beforeEach(function() {
-            MyModel = obs_model.model('MyModel');
+            MyModel = model('MyModel');
             MyModel.attr('one');
             MyModel.attr('two');
             m = new MyModel({
@@ -111,7 +111,7 @@ describe('new Model()', function() {
 describe('Model#model', function() {
     var MyModel;
     beforeEach(function() {
-        MyModel = obs_model.model('MyModel');
+        MyModel = model('MyModel');
     });
     it('is a reference to the model constructor', function() {
         var m = new MyModel();
@@ -121,14 +121,14 @@ describe('Model#model', function() {
 describe('Model#dismiss()', function() {
     var MyModel;
     beforeEach(function() {
-        MyModel = obs_model.model('MyModel');
+        MyModel = model('MyModel');
     });
     it('calls every destructor', function() {
         var fn1 = function() {fn1.timesCalled += 1;};
         var fn2 = function() {fn2.timesCalled += 1;};
-        var plugin = function(model) {
-            model._destructors.push(fn1);
-            model._destructors.push(fn2);
+        var plugin = function(m) {
+            m._destructors.push(fn1);
+            m._destructors.push(fn2);
         };
         fn1.timesCalled = 0;
         fn2.timesCalled = 0;

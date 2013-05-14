@@ -1,4 +1,4 @@
-var assimilate = require('assimilate'),
+var aug = require('aug'),
     obs = require('obs'),
     noop = function() {};
 
@@ -66,7 +66,7 @@ function model(name, attrs) {
         }
     };
 
-    assimilate(Model, {
+    aug(Model, {
         modelName: name,
         attrs: attrs || {},
         plugins: [],
@@ -90,4 +90,5 @@ function model(name, attrs) {
 
     return Model;
 }
-exports.model = model;
+
+module.exports = model;
