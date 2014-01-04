@@ -1,7 +1,11 @@
 {
   "name": "obs-model",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Extensible observable models.",
+  "licenses": {
+    "type": "UNLICENSE",
+    "url": "https://github.com/pluma/obs-model/blob/master/UNLICENSE"
+  },
   "keywords": [
     "observable",
     "model",
@@ -9,21 +13,20 @@
     "mvvm"
   ],
   "dependencies": {
-    "aug": "~0.1.0",
-    "obs": "~0.9.1"
+    "aug": "~0.1",
+    "obs": "~0.10"
   },
   "devDependencies": {
-    "mocha": "1.9.x",
-    "expect.js": "0.2.x",
-    "uglify-js": "2.3.x",
-    "jshint": "2.0.x"
+    "mocha": "~1.16",
+    "expect.js": "~0.2",
+    "uglify-js": "~2.4",
+    "jshint": "~2.4"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/pluma/obs-model.git"
   },
   "author": "Alan Plum <me@pluma.io>",
-  "license": "MIT",
   "main": "./dist/obs-model.js",
   "scripts": {
     "test": "make test"

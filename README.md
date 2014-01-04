@@ -145,6 +145,6 @@ An observable property representing each attribute.
 
 Runs the model's destructors. Plugins can use these to free event listeners, subscriptions and such.
 
-# License
+# Unlicense
 
-The MIT/Expat license.
+This is free and unencumbered public domain software. For more information, see http://unlicense.org/ or the accompanying [UNLICENSE](https://github.com/pluma/obs-model/blob/master/UNLICENSE) file.

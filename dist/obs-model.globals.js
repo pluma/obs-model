@@ -1,4 +1,4 @@
-/*! obs-model 0.5.0 Copyright (c) 2013 Alan Plum. MIT licensed. @preserve */
+/*! obs-model 0.5.1 Original author Alan Plum <me@pluma.io>. Released into the Public Domain under the UNLICENSE. @preserve */
 (function(root){var require=function(key){return root[key];},module={};
 var aug = require('aug'),
     obs = require('obs'),
