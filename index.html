@@ -1,33 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>obs-model by pluma</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="obs-model : extensible observable models" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <title>obs-model</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>obs-model</h1>
-        <p>Extensible observable models.</p>
-        <p class="view"><a href="https://github.com/pluma/obs-model">View the Project on GitHub <small>pluma/obs-model</small></a></p>
-        <ul>
-          <li><a href="https://github.com/pluma/obs-model/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/pluma/obs-model/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/pluma/obs-model">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>Synopsis</h1>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/pluma/obs-model">View on GitHub</a>
+
+          <h1 id="project_title">obs-model</h1>
+          <h2 id="project_tagline">extensible observable models</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/pluma/obs-model/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/pluma/obs-model/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="synopsis" class="anchor" href="#synopsis"><span class="octicon octicon-link"></span></a>Synopsis</h1>
 
 <p><strong>obs-model</strong> provides a minimal yet very extensible baseline for defining MVC or MVVM models with <a href="https://github.com/pluma/obs">observable attributes</a>.</p>
 
@@ -35,35 +40,42 @@
 
 <p><a href="https://ci.testling.com/pluma/obs-model"><img src="https://ci.testling.com/pluma/obs-model.png" alt="browser support"></a></p>
 
-<p><a href="https://travis-ci.org/pluma/obs-model"><img src="https://travis-ci.org/pluma/obs-model.png?branch=master" alt="Build Status"></a></p>
+<p><a href="https://travis-ci.org/pluma/obs-model"><img src="https://travis-ci.org/pluma/obs-model.png?branch=master" alt="Build Status"></a> <a href="http://badge.fury.io/js/obs-model"><img src="https://badge.fury.io/js/obs-model.png" alt="NPM version"></a> <a href="https://david-dm.org/pluma/obs-model"><img src="https://david-dm.org/pluma/obs-model.png" alt="Dependencies"></a></p>
 
-<h1>Install</h1>
+<h1>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h1>
 
-<h2>Node.js</h2>
+<h2>
+<a name="nodejs" class="anchor" href="#nodejs"><span class="octicon octicon-link"></span></a>Node.js</h2>
 
-<h3>With NPM</h3>
+<h3>
+<a name="with-npm" class="anchor" href="#with-npm"><span class="octicon octicon-link"></span></a>With NPM</h3>
 
-<div class="highlight"><pre>npm install obs
+<div class="highlight highlight-sh"><pre>npm install obs
 </pre></div>
 
-<h3>From source</h3>
+<h3>
+<a name="from-source" class="anchor" href="#from-source"><span class="octicon octicon-link"></span></a>From source</h3>
 
-<div class="highlight"><pre>git clone https://github.com/pluma/obs-model.git
+<div class="highlight highlight-sh"><pre>git clone https://github.com/pluma/obs-model.git
 <span class="nb">cd </span>obs-model
 npm install
 make <span class="o">&amp;&amp;</span> make dist
 </pre></div>
 
-<h2>Browser</h2>
+<h2>
+<a name="browser" class="anchor" href="#browser"><span class="octicon octicon-link"></span></a>Browser</h2>
 
-<h3>With component</h3>
+<h3>
+<a name="with-component" class="anchor" href="#with-component"><span class="octicon octicon-link"></span></a>With component</h3>
 
-<div class="highlight"><pre>component install pluma/obs-model
+<div class="highlight highlight-sh"><pre>component install pluma/obs-model
 </pre></div>
 
 <p><a href="https://github.com/component/component">Learn more about component</a>.</p>
 
-<h3>With a CommonJS module loader</h3>
+<h3>
+<a name="with-a-commonjs-module-loader" class="anchor" href="#with-a-commonjs-module-loader"><span class="octicon octicon-link"></span></a>With a CommonJS module loader</h3>
 
 <p>Download the <a href="https://raw.github.com/pluma/obs-model/master/dist/obs-model.min.js">latest minified CommonJS release</a> and add it to your project.</p>
 
@@ -71,7 +83,8 @@ make <span class="o">&amp;&amp;</span> make dist
 
 <p><a href="http://wiki.commonjs.org/wiki/Modules/1.1">Learn more about CommonJS modules</a>.</p>
 
-<h3>With an AMD module loader</h3>
+<h3>
+<a name="with-an-amd-module-loader" class="anchor" href="#with-an-amd-module-loader"><span class="octicon octicon-link"></span></a>With an AMD module loader</h3>
 
 <p>Download the <a href="https://raw.github.com/pluma/obs-model/master/dist/obs-model.amd.min.js">latest minified AMD release</a> and add it to your project.</p>
 
@@ -79,9 +92,11 @@ make <span class="o">&amp;&amp;</span> make dist
 
 <p><a href="http://requirejs.org/docs/whyamd.html">Learn more about AMD modules</a>.</p>
 
-<h1>Basic usage example</h1>
+<h1>
+<a name="basic-usage-example" class="anchor" href="#basic-usage-example"><span class="octicon octicon-link"></span></a>Basic usage example</h1>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">'User'</span><span class="p">)</span>
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">model</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'obs-model'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">'User'</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'username'</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'firstname'</span><span class="p">)</span>
@@ -89,6 +104,11 @@ make <span class="o">&amp;&amp;</span> make dist
     <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'fullname'</span><span class="p">,</span> <span class="p">{</span>
         <span class="nx">read</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
             <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstname</span><span class="p">()</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastname</span><span class="p">();</span>
+        <span class="p">},</span>
+        <span class="nx">write</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">tokens</span> <span class="o">=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">);</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">firstname</span><span class="p">(</span><span class="nx">tokens</span><span class="p">.</span><span class="nx">shift</span><span class="p">());</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">lastname</span><span class="p">(</span><span class="nx">tokens</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">' '</span><span class="p">));</span>
         <span class="p">},</span>
         <span class="nx">watch</span><span class="o">:</span> <span class="p">[</span><span class="s1">'firstname'</span><span class="p">,</span> <span class="s1">'lastname'</span><span class="p">]</span>
     <span class="p">});</span>
@@ -98,6 +118,8 @@ make <span class="o">&amp;&amp;</span> make dist
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">john</span><span class="p">.</span><span class="nx">fullname</span><span class="p">());</span> <span class="c1">// "John Doe"</span>
 <span class="nx">john</span><span class="p">.</span><span class="nx">lastname</span><span class="p">(</span><span class="s1">'Smith'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">john</span><span class="p">.</span><span class="nx">fullname</span><span class="p">());</span> <span class="c1">// "John Smith"</span>
+<span class="nx">john</span><span class="p">.</span><span class="nx">fullname</span><span class="p">(</span><span class="s1">'John von Johnson'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">john</span><span class="p">.</span><span class="nx">lastname</span><span class="p">());</span> <span class="c1">// "von Johnson"</span>
 
 <span class="nx">john</span><span class="p">.</span><span class="nx">username</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"john's username is now: "</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
@@ -106,72 +128,91 @@ make <span class="o">&amp;&amp;</span> make dist
 <span class="c1">// -&gt; "john's username is now: admin"</span>
 </pre></div>
 
-<h1>API</h1>
+<h1>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h1>
 
-<h2>model(name)</h2>
+<h2>
+<a name="modelname" class="anchor" href="#modelname"><span class="octicon octicon-link"></span></a>model(name)</h2>
 
 <p>Create a <code>Model</code> with the given name.</p>
 
-<h2>Model.modelName</h2>
+<h2>
+<a name="modelmodelname" class="anchor" href="#modelmodelname"><span class="octicon octicon-link"></span></a>Model.modelName</h2>
 
 <p>The model's name as passed to <code>model()</code>.</p>
 
-<h2>Model.attr(name, [options])</h2>
+<h2>
+<a name="modelattrname-options" class="anchor" href="#modelattrname-options"><span class="octicon octicon-link"></span></a>Model.attr(name, [options])</h2>
 
 <p>Defines a new attribute with the given name. The <code>options</code> can be an object containing configuration data for the attribute.</p>
 
 <p>The attribute will appear as an observable property on new model instances.</p>
 
-<h3>options.read and options.write</h3>
+<h3>
+<a name="optionsread-and-optionswrite" class="anchor" href="#optionsread-and-optionswrite"><span class="octicon octicon-link"></span></a>options.read and options.write</h3>
 
 <p>If either of these options is given, a computed observable with its context bound to the model will be created instead of a regular observable property.</p>
 
-<h3>options.watch</h3>
+<h3>
+<a name="optionswatch" class="anchor" href="#optionswatch"><span class="octicon octicon-link"></span></a>options.watch</h3>
 
 <p>If <code>options.read</code> is given, <code>options.watch</code> may optionally be an array of attribute names the computed observable will monitor for changes.</p>
 
-<h3>options.lazy</h3>
+<h3>
+<a name="optionslazy" class="anchor" href="#optionslazy"><span class="octicon octicon-link"></span></a>options.lazy</h3>
 
 <p>If <code>options.read</code> is given, <code>options.lazy</code> may optionally be a boolean determining whether the computed observable will use lazy evaluation.</p>
 
-<h2>Model.use(plugin:Function)</h2>
+<h2>
+<a name="modelusepluginfunction" class="anchor" href="#modelusepluginfunction"><span class="octicon octicon-link"></span></a>Model.use(plugin:Function)</h2>
 
 <p>Adds the given plugin to the model. The function will later be called by the model's constructor with <code>this</code> set to the new model instance. If you add the same plugin multiple times, it will only be added once.</p>
 
 <p>This method is the backbone of model extensibility.</p>
 
-<h3>plugin.contributeToModel(Model)</h3>
+<h3>
+<a name="plugincontributetomodelmodel" class="anchor" href="#plugincontributetomodelmodel"><span class="octicon octicon-link"></span></a>plugin.contributeToModel(Model)</h3>
 
 <p>If this function exists, it will be applied to the <code>Model</code> definition when the plugin is added.</p>
 
 <p>This function can provide additional properties or behaviour to the <code>Model</code> type itself.</p>
 
-<h2>new Model([values])</h2>
+<h2>
+<a name="new-modelvalues" class="anchor" href="#new-modelvalues"><span class="octicon octicon-link"></span></a>new Model([values])</h2>
 
 <p>Creates a new model instance. <code>values</code> is optionally an object mapping attribute names to their initial values.</p>
 
-<h2>Model#model</h2>
+<h2>
+<a name="modelmodel" class="anchor" href="#modelmodel"><span class="octicon octicon-link"></span></a>Model#model</h2>
 
 <p>The <code>Model</code> this model is an instance of.</p>
 
-<h2>Model#[attrName]</h2>
+<h2>
+<a name="modelattrname" class="anchor" href="#modelattrname"><span class="octicon octicon-link"></span></a>Model#[attrName]</h2>
 
 <p>An observable property representing each attribute.</p>
 
-<h2>Model#dismiss()</h2>
+<h2>
+<a name="modeldismiss" class="anchor" href="#modeldismiss"><span class="octicon octicon-link"></span></a>Model#dismiss()</h2>
 
 <p>Runs the model's destructors. Plugins can use these to free event listeners, subscriptions and such.</p>
 
-<h1>License</h1>
+<h1>
+<a name="unlicense" class="anchor" href="#unlicense"><span class="octicon octicon-link"></span></a>Unlicense</h1>
 
-<p>The MIT/Expat license.</p>
+<p>This is free and unencumbered public domain software. For more information, see <a href="http://unlicense.org/">http://unlicense.org/</a> or the accompanying <a href="https://github.com/pluma/obs-model/blob/master/UNLICENSE">UNLICENSE</a> file.</p>
       </section>
     </div>
-    <footer>
-      <p>Project maintained by <a href="https://github.com/pluma">pluma</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">obs-model maintained by <a href="https://github.com/pluma">pluma</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
     
+
   </body>
 </html>
