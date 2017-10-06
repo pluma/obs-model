@@ -1,3 +1,5 @@
+**NOTE:** This package is no longer being maintained. If you are interested in taking over as maintainer or are interested in the npm package name, get in touch by creating an issue.
+
 # Synopsis
 
 **obs-model** provides a minimal yet very extensible baseline for defining MVC or MVVM models with [observable attributes](https://github.com/pluma/obs).
